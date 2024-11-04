@@ -21,6 +21,10 @@ export async function createSession(userId: string) {
   });
 }
 
+export async function deleteSession() {
+  (await cookies()).delete("session");
+}
+
 export async function encrypt(payload: SessionPayload) {
   return new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
